@@ -15,10 +15,10 @@ def check_message(this, user):
 		for sender in messages:
 			sent_messages = messages[sender]
 			ammount = str(len(sent_messages))
-			this.irc.privmsg(user, '{} has sent you {} message[s]:'.format(sender, ammount))
+			this.privmsg(user, '{} has sent you {} message[s]:'.format(sender, ammount))
 			
 			for message in sent_messages:
-				this.irc.privmsg(user, message)
+				this.privmsg(user, message)
 			
 			remove.append(sender)
 		

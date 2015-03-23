@@ -3,7 +3,7 @@ meta_data 	= { "help": ["Dances","Usage: &botcmddance"], "aliases": ["dance", "d
 
 
 
-def execute(parent, commands, irc, user, host, channel, params ):
+def execute(parent, commands, user, host, channel, params ):
 	dance  		= ["<(^_^)>",">(^_^)>","<(^_^)<","^(^_^)^","v(^_^)v"]
 	colorCode 	= [ "\x032", "\x033","\x034", "\x035", "\x036", "\x037","\x038", "\x039","\x0310","\x0311","\x0312","\x0313","\x0315" ]
 	returnData 	= []

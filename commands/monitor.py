@@ -4,7 +4,7 @@ meta_data	= { "help": ["Adds or removes a user to the notify list", "Usage: &bot
 
 
 
-def execute(parent, commands, irc, user, host, channel, params):
+def execute(parent, commands, user, host, channel, params):
 	try:
 		data = open( parent.def_dir + "/commands/monitor_list" ).read()
 		monData = json.loads( data )
@@ -31,14 +31,14 @@ def execute(parent, commands, irc, user, host, channel, params):
 				continue
 
 			monData[ user ].append( k )
-			irc.send('MONITOR + ' + k )
+			parent.send('MONITOR + ' + k )
 		open( parent.def_dir + "/commands/monitor_list", "w").write( str(monData).replace("'", '"') )
 		return ["Users added to your list: " + ', '.join( params[1:] ) + "."]
 
 	if params[0] == "remove":
 		for k in params[1:]:
 			monData[ user ].remove( k )
-			irc.send('MONITOR - ' + k )
+			parent.send('MONITOR - ' + k )
 		open( parent.def_dir + "/commands/monitor_list", "w").write( str(monData).replace("'", '"') )
 		return ["Users removed from your list: " + ', '.join( params[1:] ) + "."]
 

@@ -1,7 +1,7 @@
 import json
 meta_data = {"help": ["This command will search amazon.","Usage: &botcmdamazon <query>"], "aliases": ['amazon','az'], "owner": 0 }
 
-def execute(parent, commands, irc, user, host, channel, params ):
+def execute(parent, commands, user, host, channel, params ):
 	if len(params) == 0:
 		return [meta_data['help'][1]]
 	search = 'site:www.amazon.com%20' + '%20'.join(params)

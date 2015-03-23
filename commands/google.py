@@ -4,7 +4,7 @@ import html.parser
 meta_data 	= { "help": ["Searches google for a query.","Usage: &botcmdgoogle <query>"], "aliases": ["google", "g", "search"], "owner": 0 }
 
 
-def execute(parent, commands, irc, user, host, channel, params):
+def execute(parent, commands, user, host, channel, params):
 		try:		
 		
 			if len( params ) == 0:
