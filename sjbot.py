@@ -35,7 +35,6 @@ class sjBot(bot):
 	channel_list = ['#Sjc_Bot','#ahkscript','#ahk','#donationcoder']
 	def __init__(self, network, port, keyfile='keys'):
 		self.def_dir = os.path.dirname(os.path.realpath(__file__))
-		pprint('{} started. Thanks for using my software! :D'.format(self.nickname), prefix=' ', timestamp=1)
 		with open(self.def_dir + '/' + keyfile, 'r') as my_file:
 			self.keys = json.loads( my_file.read() )
 		pprint('Loading commands and plugins.', prefix=' ', timestamp=1)
@@ -55,10 +54,10 @@ class sjBot(bot):
 			raise
 	
 	def startup(self):
-		nickname = 'sjBot'
-		host = 'uptonesoftware'
-		user = 'Sjc1000'
-		realname = 'Uptone Software/sjBot'
+		self.nickname = 'sjBot'
+		self.host = 'uptonesoftware'
+		self.user = 'Sjc1000'
+		self.realname = 'Uptone Software/sjBot'
 		self.ident()
 		return 0
 	
