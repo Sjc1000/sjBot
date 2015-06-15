@@ -166,7 +166,8 @@ class base():
 		This will handle data incoming from the main_loop.
 		This is where all the action happens. It splits it up and turns things
 		into onMESSAGE setups. messages will be things like JOIN, PART and
-		other IRC things.
+		other IRC things. If you're not familiar with how IRC works these
+		will not make any sense to you.
 
 		params:
 			data:	The data to handle.
@@ -293,7 +294,7 @@ class base():
 		Changes the nickname of the bot.
 
 		params:
-		 nickname:	The new nickname of the bot.
+			nickname:	The new nickname of the bot.
 		"""
 		self.nickname = nickname
 		self.send('NICK ' + nickname)

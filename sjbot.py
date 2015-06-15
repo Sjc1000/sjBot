@@ -30,6 +30,7 @@ import html.entities
 from cprint import cprint
 from base import base
 from threads import asthread
+import Github
 
 
 def timestamp():
@@ -41,6 +42,8 @@ def timestamp():
 class sjBot(base):
 
     last_user = None
+    last_greeting = None
+    showrss = False
 
     def __init__(self, keyfile='keys'):
         """__init__
@@ -55,6 +58,7 @@ class sjBot(base):
         self.commands = self.load_plugins(self.def_dir + '/commands/')
         self.plugins = self.load_plugins(self.def_dir + '/plugins/')
         self.display('Connecting to IRC.')
+        Github.token = self.keys['github']
         base.__init__(self, self.network, self.port)
     
     def getsettings(self):
@@ -109,6 +113,7 @@ class sjBot(base):
             self.default_cmd = settings['default_cmd']
             self.commands = self.load_plugins(self.def_dir + '/commands/')
             self.plugins = self.load_plugins(self.def_dir + '/plugins/')
+            print( threading.active_count() )
             time.sleep(timeout)
         return None
     
@@ -297,6 +302,7 @@ class sjBot(base):
         sjBot checks for a command, and does all the command stuff then will
             return any data given by the command.
         """
+        print( threading.active_count() )
         self.load_plugins(self.def_dir + '/commands/')
         user, host = uhost.split('!')
         user = user[1:]
@@ -338,19 +344,23 @@ class sjBot(base):
                     uhost for us in self.ownerlist):
                 self.privmsg(channel, 'You do not have permission to use '
                              'that!')
-                return 0
+                return None
             
             response = self.commands[cmd].execute(self, self.commands, user, 
                                                   host, channel, params)
             if response == 0:
-                return 0
+                return None
             if isinstance(response, int):
                 response = [str(response)]
             if isinstance(response, str):
                 response = [response]
             for re in response:
+                if len(re) > 150:
+                    gist = Github.Gists.create_gist({'Output for ' + channel: {'content': re}}, 'sjBot gists post.', False)
+                    self.privmsg(channel, gist['html_url'])
+                    return None
                 self.privmsg(channel, re.replace('&botcmd', botcmd))
-        return 0
+        return None
 
     def display(self, data):
         cprint(data, '[.purple]' + timestamp() + '[./purple] ')
