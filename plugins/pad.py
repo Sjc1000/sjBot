@@ -12,7 +12,7 @@ class Plugin:
 
     def pad(self, server, user, channel, *query):
         """Searches for a PAD query."""
-        url = self.search(query, 'http://pad.wikia.com/wiki/')
+        url = self.search(query, 'http://puzzledragonx.com/')
         if url is None:
             return 'Could not find that.'
         return '\x02Here you go\x02 - {}'.format(url)
