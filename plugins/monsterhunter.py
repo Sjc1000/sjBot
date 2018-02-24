@@ -13,7 +13,17 @@ class Plugin:
                              channels=['##monsterhunter'])
         bot.register_command(__name__, ['mhgen', 'gen'], self.mhgen,
                              channels=['##monsterhunter'])
-        bot.register_command(__name__, ['mhxx', 'xx'], self.mhxx)
+        bot.register_command(__name__, ['mhxx', 'xx'], self.mhxx,
+                             channels=['##monsterhunter'])
+        bot.register_command(__name__, ['mhw', 'worls'], self.mhw,
+                             channels=['##monsterhunter'])
+
+    def mhw(self, server, user, channel, *query):
+        """searches for a Monster Hunter world query."""
+        url = self.search(query, "mhworld.kiranico.com/")
+        if url is None:
+            return 'Could not find that.'
+        return '\x02Here you go, Doodle\x02 - {}'.format(url)
 
     def mhxx(self, server, user, channel, *query):
         """Searches for a mhxx related query."""
