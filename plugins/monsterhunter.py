@@ -15,7 +15,7 @@ class Plugin:
                              channels=['##monsterhunter'])
         bot.register_command(__name__, ['mhxx', 'xx'], self.mhxx,
                              channels=['##monsterhunter'])
-        bot.register_command(__name__, ['mhw', 'worls'], self.mhw,
+        bot.register_command(__name__, ['mhw', 'world'], self.mhw,
                              channels=['##monsterhunter'])
 
     def mhw(self, server, user, channel, *query):
