@@ -344,7 +344,7 @@ class User:
 if __name__ == '__main__':
     bot = Bot()
 
-    server = irc.Server('localhost', nickname='sjBot', ref=bot)
+    server = irc.Server('localhost', nickname='local_sjBot', ref=bot)
     server.connect()
     server.identify()
 

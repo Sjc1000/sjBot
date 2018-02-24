@@ -1,0 +1,21 @@
+{
+    "triggers":
+    {
+        "##monsterhunter": "!",
+        "#donationcoder": ".]",
+        "default": "]",
+        "pm": "!]."
+    },
+    "default_commands":
+    {
+        "##monsterhunter": "mhgen",
+        "#ahkscript": "docs",
+        "#ahk": "docs"
+    },
+    "channels": ["#Sjc_Bot", "#uptone"],
+    "bot_password": "1234PASSWORD",
+    "google_key": "AIzaSyAJQbRWt3p4S5sAiHL_iiot87KcbEa0dsQ",
+    "giphy_key": "dc6zaTOxFJmzC",
+    "github_key": "afccacff4c3d035dfec6f95b5331b16f667ef81a",
+    "wolfram_key": "9HX9YX-HJHHPWPVK4"
+}

@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 
 url_regex = '((?:https?://)((?:www\.)?.*?)(?:/|$).*)$'
-ignore_nicks = ['DcForum', 'SteBot', 'robokins']
+ignore_nicks = ['DcForum', 'SteBot', 'robokins', 'ForumBot']
 ignore_channels = ['##monsterhunter']
 
 

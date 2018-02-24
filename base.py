@@ -237,11 +237,9 @@ class Server:
         self.call_decorator('user_nick', user=nickname, nick=newnick, host=host)
         return None
 
-
     def r_396(self, *_):
         self.call_decorator('identified')
         return None
-
 
     def r_366(self, host, nickname, channel, *_):
         self.call_decorator('self_join', channel)
